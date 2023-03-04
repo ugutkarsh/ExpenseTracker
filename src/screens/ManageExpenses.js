@@ -1,10 +1,24 @@
-import { useLayoutEffect } from "react";
-import { View, StyleSheet } from "react-native";
+import { useContext, useLayoutEffect } from "react";
+import { View, StyleSheet, Alert } from "react-native";
+import Button from "../components/UI/Button";
 import IconButton from "../components/UI/IconButton";
 import { GlobalStyles } from "../constants/styles";
-import Button from "../components/UI/Button";
+import { ExpensesContext } from "../store/expenses-context";
+
 
 const ManageExpenses = ({ route, navigation }) => {
+
+    const createTwoButtonAlert = () =>
+        Alert.alert('Do you want to delete the data', 'Press OK to continue', [
+            {
+                text: 'Cancel',
+                onPress: () => navigation.goBack(),
+                style: 'cancel',
+            },
+            { text: 'OK', onPress: () => deleteExpenseHandler() },
+        ]);
+
+    const expensesCtx = useContext(ExpensesContext);
 
     const editedExpenseId = route.params?.expenseId;
     const isEditing = !!editedExpenseId;
@@ -16,28 +30,54 @@ const ManageExpenses = ({ route, navigation }) => {
     }, [navigation, isEditing]);
 
     const deleteExpenseHandler = () => {
-        return console.log("hello");
+        expensesCtx.deleteExpense(editedExpenseId);
+        navigation.goBack();
     };
-    const cancelHandler = () => { 
-       navigation.goBack();
+    const cancelHandler = () => {
+        navigation.goBack();
     };
-    const confirmHandler = () => { 
-        return console.log("hello");
+    const confirmHandler = () => {
+        if (isEditing) {
+            expensesCtx.updateExpense(
+                editedExpenseId,
+                {
+                    description: 'Test!!!!',
+                    amount: 55.99,
+                    date: new Date('2023-01-20'),
+                }
+            );
+        } else {
+            expensesCtx.addExpense({
+                description: 'Test',
+                amount: 19.99,
+                date: new Date('2022-05-20'),
+            });
+            console.log('hello from  add')
+        }
+        navigation.goBack();
     };
     return (
         <View style={styles.container}>
             <View style={styles.buttons}>
-                <Button style={styles.button} mode="flat" onPress={cancelHandler}>Cancel</Button>
-                <Button style={styles.button} onPress={confirmHandler}>{isEditing ? 'Update' : 'Add'}</Button>
+                <Button style={styles.button} mode="flat" onPress={cancelHandler}>
+                    Cancel
+                </Button>
+                <Button style={styles.button} onPress={confirmHandler}>
+                    {isEditing ? 'Update' : 'Add'}
+                </Button>
             </View>
             {isEditing && (
                 <View style={styles.deleteContainer}>
-                    <IconButton icon="trash-can" color={GlobalStyles.colors.error500} size={36} onPress={deleteExpenseHandler} />
+                    <IconButton
+                        icon="trash-can"
+                        color={GlobalStyles.colors.error500}
+                        size={36}
+                        onPress={createTwoButtonAlert} />
                 </View>
             )
             }
         </View>
-    )
+    );
 }
 
 export default ManageExpenses;
@@ -55,7 +95,7 @@ const styles = StyleSheet.create({
     },
     button: {
         minWidth: 120,
-        marginHorizontal:8
+        marginHorizontal: 8
     },
     deleteContainer: {
         marginTop: 16,

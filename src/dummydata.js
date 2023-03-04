@@ -58,6 +58,12 @@ const DUMMY_EXPENSES = [
         description: 'Novel',
         amount: 450.22,
         date: new Date('2023-1-1')
+    },
+    {
+        id: 'e11',
+        description: 'Novel : The Man Called Ove',
+        amount: 450.22,
+        date: new Date('2023-3-1')
     }
 ];
 

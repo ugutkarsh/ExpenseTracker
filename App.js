@@ -8,6 +8,7 @@ import RecentExpenses from './src/screens/RecentExpenses';
 import { GlobalStyles } from './src/constants/styles';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconButton from './src/components/UI/IconButton';
+import ExpensesContextProvider from './src/store/expenses-context';
 
 
 const Stack = createNativeStackNavigator();
@@ -43,6 +44,7 @@ const ExpensesOverview = () => {
 
 const App = () => {
   return (
+    <ExpensesContextProvider>
     <NavigationContainer>
       <Stack.Navigator screenOptions={{
         headerStyle: {backgroundColor:GlobalStyles.colors.primary500},
@@ -52,6 +54,7 @@ const App = () => {
         <Stack.Screen name="ManageExpenses" component={ManageExpenses} />
       </Stack.Navigator>
     </NavigationContainer>
+    </ExpensesContextProvider>
   );
 };
 

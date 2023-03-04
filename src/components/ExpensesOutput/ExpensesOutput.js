@@ -7,8 +7,8 @@ import DUMMY_EXPENSES from "../../dummydata";
 const ExpensesOuput = ({ expenses, expensesPeriod }) => {
     return (
         <View style={styles.container}>
-            <ExpensesSummary expenses={DUMMY_EXPENSES} periodName={expensesPeriod} />
-            <ExpensesList expenses={DUMMY_EXPENSES} />
+            <ExpensesSummary expenses={expenses} periodName={expensesPeriod} />
+            <ExpensesList expenses={expenses} />
         </View>
     );
 }

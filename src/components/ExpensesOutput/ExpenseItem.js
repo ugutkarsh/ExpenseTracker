@@ -1,26 +1,31 @@
 import { Pressable, Text, View, StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { GlobalStyles } from "../../constants/styles";
-import {useNavigation} from "@react-navigation/native";
+
 export const getFormattedDate = (date) => {
     return (`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`);
+
+}
+export const getDateMinusDays = (date, days) => {
+    return (new Date(date.getFullYear(), date.getMonth(), date.getDate() - days));
 }
 
-const ExpenseItem = ({id, description, amount, date }) => {
+const ExpenseItem = ({ id, description, amount, date }) => {
     const navigation = useNavigation();
     const expensePressHandler = () => {
-        navigation.navigate('ManageExpenses',{
+        navigation.navigate('ManageExpenses', {
             expenseId: id
         });
     }
     return (
-        <Pressable onPress={expensePressHandler} style={({pressed})=>pressed && styles.pressed}>
+        <Pressable onPress={expensePressHandler} style={({ pressed }) => pressed && styles.pressed}>
             <View style={styles.expenseItem}>
                 <View>
                     <Text style={[styles.textBase, styles.description]}>{description}</Text>
-                    <Text style={styles.textBase}>{getFormattedDate(date)}</Text>
+                    <Text style={styles.textBase}>{  getFormattedDate(date) }</Text>
                 </View>
                 <View style={styles.amountContainer}>
-                           <Text style={styles.amount}>₹{amount.toFixed(2)}</Text>
+                    <Text style={styles.amount}>₹{amount.toFixed(2)}</Text>
                 </View>
             </View>
         </Pressable>
@@ -42,8 +47,8 @@ const styles = StyleSheet.create({
         shadowColor: GlobalStyles.colors.gray500,
         shadowRadius: 4,
     },
-    pressed:{
-        opacity : 0.75,
+    pressed: {
+        opacity: 0.75,
     },
     textBase: {
         color: GlobalStyles.colors.primary50,
@@ -62,7 +67,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderRadius: 10,
         minWidth: 90,
-        
+
     },
     amount: {
         color: GlobalStyles.colors.primary500,
