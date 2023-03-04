@@ -39,7 +39,7 @@ const DUMMY_EXPENSES = [
         id: 'e7',
         description: 'SSd',
         amount: 1500.24,
-        date: new Date('2022-5-15')
+        date: new Date('2023-3-3')
     },
     {
         id: 'e8',
