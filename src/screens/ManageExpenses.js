@@ -1,12 +1,14 @@
-import { useContext, useLayoutEffect } from "react";
+import { useContext, useLayoutEffect, useState } from "react";
 import { Alert, StyleSheet, View } from "react-native";
 import ExpenseForm from "../ManageExpense/ExpenseForm";
 import IconButton from "../components/UI/IconButton";
 import { GlobalStyles } from "../constants/styles";
 import { ExpensesContext } from "../store/expenses-context";
-import { storeExpense } from "../util/http";
+import { deleteExpense, storeExpense, updateExpense } from "../util/http";
+import LoadingOverlay from "../components/UI/LoadingOverlay";
 
 const ManageExpenses = ({ route, navigation }) => {
+    const [isSubmiting, setIsSubmitting] = useState(false);
     const createTwoButtonAlert = () =>
         Alert.alert('Do you want to delete the data', 'Press OK to continue', [
             {
@@ -32,7 +34,10 @@ const ManageExpenses = ({ route, navigation }) => {
         });
     }, [navigation, isEditing]);
 
-    const deleteExpenseHandler = () => {
+    const deleteExpenseHandler =async () => {
+        setIsSubmitting(true);
+        await deleteExpense(editedExpenseId);
+        // setIsSubmitting(false);
         expensesCtx.deleteExpense(editedExpenseId);
         navigation.goBack();
     };
@@ -40,16 +45,23 @@ const ManageExpenses = ({ route, navigation }) => {
         navigation.goBack();
     };
     const confirmHandler = async (expenseData) => {
+        setIsSubmitting(true);
         if (isEditing) {
             expensesCtx.updateExpense(
                 editedExpenseId, expenseData
             );
+            await updateExpense(editedExpenseId, expenseData);
         } else {
             const id = await storeExpense(expenseData);
             expensesCtx.addExpense({ ...expenseData, id: id });
         }
         navigation.goBack();
     };
+
+    if(isSubmiting){
+        return <LoadingOverlay/>
+    }
+
     return (
         <View style={styles.container}>
             <ExpenseForm
