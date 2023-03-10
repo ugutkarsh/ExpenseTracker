@@ -4,6 +4,7 @@ import ExpenseForm from "../ManageExpense/ExpenseForm";
 import IconButton from "../components/UI/IconButton";
 import { GlobalStyles } from "../constants/styles";
 import { ExpensesContext } from "../store/expenses-context";
+import { storeExpense } from "../util/http";
 
 const ManageExpenses = ({ route, navigation }) => {
     const createTwoButtonAlert = () =>
@@ -38,13 +39,14 @@ const ManageExpenses = ({ route, navigation }) => {
     const cancelHandler = () => {
         navigation.goBack();
     };
-    const confirmHandler = (expenseData) => {
+    const confirmHandler = async (expenseData) => {
         if (isEditing) {
             expensesCtx.updateExpense(
                 editedExpenseId, expenseData
             );
         } else {
-            expensesCtx.addExpense(expenseData);
+            const id = await storeExpense(expenseData);
+            expensesCtx.addExpense({ ...expenseData, id: id });
         }
         navigation.goBack();
     };
