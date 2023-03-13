@@ -1,6 +1,4 @@
 import { createContext, useReducer } from "react";
-import DUMMY_EXPENSES from "../dummydata";
-import { set } from "react-native-reanimated";
 
 export const ExpensesContext = createContext({
     expenses: [],
@@ -34,7 +32,7 @@ const expensesReducer = (state, action) => {
 }
 
 const ExpensesContextProvider = ({ children }) => {
-    const [expensesState, dispatch] = useReducer(expensesReducer, DUMMY_EXPENSES);
+    const [expensesState, dispatch] = useReducer(expensesReducer, []);
 
     const addExpense = (expenseData) => {
         dispatch({ type: 'ADD', payload: expenseData });
