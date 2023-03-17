@@ -31,29 +31,27 @@ const ExpensesOverview = () => {
         headerTintColor: '#fff',
         tabBarStyle: { backgroundColor: GlobalStyles.colors.primary800 },
         tabBarActiveTintColor: GlobalStyles.colors.accent500,
+        headerRight: ({ }) => (
+          <IconButton icon="plus" size={24} color={"#fff"} onPress={() => { navigation.navigate('ManageExpenses') }} />
+        )
       })}
     >
       <BottomTabs.Screen name="RecentExpenses" component={RecentExpenses}
         options={{
           title: 'Recent Expenses',
           tabBarLabel: 'Recent',
-          headerRight: ({ }) => (
-            <IconButton icon="plus" size={24} color={"#fff"} onPress={() => { navigation.navigate('ManageExpenses') }} />
-          ),
           tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="clock-check-outline" size={30} color={color} />
         }} />
       <BottomTabs.Screen name="AllExpenses" component={AllExpenses} options={{
         title: 'All Expenses',
         tabBarLabel: 'All Expenses',
-        headerRight: ({ }) => (
-          <IconButton icon="plus" size={24} color={"#fff"} onPress={() => { navigation.navigate('ManageExpenses') }} />
-        ),
         tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="calendar" size={30} color={color} />
       }} />
       <BottomTabs.Screen name="Account" component={Account} options={{
         title: 'Account',
         tabBarLabel: 'Account',
         tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="account" size={30} color={color} 
+
         />
       }} />
     </BottomTabs.Navigator>
