@@ -38,20 +38,20 @@ const styles = StyleSheet.create({
     expenseItem: {
         padding: 10,
         marginVertical: 8,
-        backgroundColor: GlobalStyles.colors.primary500,
+        backgroundColor: GlobalStyles.colors.primary800,
         flexDirection: 'row',
         justifyContent: "space-between",
         borderRadius: 6,
         borderBottomColor: "#fff",
         elevation: 4,
-        shadowColor: GlobalStyles.colors.gray500,
+        shadowColor: 'GlobalStyles.colors.gray500',
         shadowRadius: 4,
     },
     pressed: {
         opacity: 0.75,
     },
     textBase: {
-        color: GlobalStyles.colors.primary50,
+        color: '#246BFD',
     },
     description: {
         fontSize: 16,
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 5,
         marginHorizontal: 10,
         paddingVertical: 5,
-        backgroundColor: "#fff",
+        backgroundColor: "#246BFD",
         justifyContent: "center",
         alignItems: "center",
         borderRadius: 10,
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
 
     },
     amount: {
-        color: GlobalStyles.colors.primary500,
+        color: '#fff',  //some changes required
         fontStyle: "normal",
         fontWeight: "bold",
     }

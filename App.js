@@ -1,19 +1,23 @@
+import { StatusBar } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StatusBar } from 'react-native';
 import { hideNavigationBar } from 'react-native-navigation-bar-color';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Entypo from 'react-native-vector-icons/Entypo';
+
 import IconButton from './src/components/UI/IconButton';
+import ExpensesContextProvider from './src/store/expenses-context';
 import { GlobalStyles } from './src/constants/styles';
+
 import AllExpenses from './src/screens/AllExpenses';
 import ManageExpenses from './src/screens/ManageExpenses';
 import RecentExpenses from './src/screens/RecentExpenses';
 import SplashScreen from './src/screens/SplashScreen';
-import ExpensesContextProvider from './src/store/expenses-context';
 import Login from './src/screens/Login';
 import SignUp from './src/screens/SignUp';
 import Account from './src/screens/Account';
+import Statistics from './src/screens/Statistics';
 
 
 const Stack = createNativeStackNavigator();
@@ -23,35 +27,49 @@ const Hide = () => {
 };
 
 
-const ExpensesOverview = () => {
+const ExpensesOverview = ({navigation}) => {
   return (
     <BottomTabs.Navigator
-      screenOptions={({ navigation }) => ({
+      screenOptions={() => ({
         headerStyle: { backgroundColor: GlobalStyles.colors.primary800 },
-        headerTintColor: '#fff',
+        headerTintColor: '#246BFD',
         tabBarStyle: { backgroundColor: GlobalStyles.colors.primary800 },
         tabBarActiveTintColor: GlobalStyles.colors.accent500,
-        headerRight: ({ }) => (
-          <IconButton icon="plus" size={24} color={"#fff"} onPress={() => { navigation.navigate('ManageExpenses') }} />
-        )
+        
       })}
     >
       <BottomTabs.Screen name="RecentExpenses" component={RecentExpenses}
         options={{
           title: 'Recent Expenses',
           tabBarLabel: 'Recent',
+          headerRight: ({ }) => (
+            <IconButton icon="plus" size={24} color={"#246BFD"} onPress={() => { navigation.navigate('ManageExpenses') }} />
+          ),
           tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="clock-check-outline" size={30} color={color} />
         }} />
       <BottomTabs.Screen name="AllExpenses" component={AllExpenses} options={{
         title: 'All Expenses',
         tabBarLabel: 'All Expenses',
+        headerRight: ({ }) => (
+          <IconButton icon="plus" size={24} color={"#246BFD"} onPress={() => { navigation.navigate('ManageExpenses') }} />
+        ),
         tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="calendar" size={30} color={color} />
+      }} />
+      <BottomTabs.Screen name="Statistics" component={Statistics} options={{
+        title: 'Statistics',
+        tabBarLabel: 'Statistics',
+        headerRight: ({ }) => (
+          <IconButton icon="plus" size={24} color={"#246BFD"} onPress={() => { navigation.navigate('ManageExpenses') }} />
+        ),
+        tabBarIcon: ({ color, size }) => <Entypo name="circular-graph" size={30} color={color} />
       }} />
       <BottomTabs.Screen name="Account" component={Account} options={{
         title: 'Account',
         tabBarLabel: 'Account',
+        headerRight: ({ }) => (
+          <IconButton icon="logout" size={24} color={"#246BFD"} onPress={() => { navigation.replace('Login') }} />
+        ),
         tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="account" size={30} color={color} 
-
         />
       }} />
     </BottomTabs.Navigator>
@@ -67,7 +85,7 @@ const App = () => {
         <NavigationContainer>
           <Stack.Navigator screenOptions={{
             headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
-            headerTintColor: "#fff"
+            headerTintColor: "#fff",
           }}>
             <Stack.Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false }} />
             <Stack.Screen name="Login" component={Login} />
