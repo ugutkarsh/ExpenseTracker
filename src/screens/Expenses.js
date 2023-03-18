@@ -6,12 +6,12 @@ const Expenses = ({ navigation }) => {
         <View style={styles.container}>
             <Text style={{ color: '#fff' }}>This is Expenses Page</Text>
             <Button
-                color="#9b095c"
+                color="#246BFD"
                 title='Recent Expenses'
                 onPress={() => navigation.navigate('Recent Expenses')}
             />
             <Button
-                color="#9b095c"
+                color="#246BFD"
                 title='All Expenses'
                 onPress={() => navigation.navigate('All Expenses')}
             />

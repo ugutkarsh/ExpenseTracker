@@ -6,9 +6,8 @@ const Report = ({ navigation }) => {
         <View style={styles.container}>
             <Text style={{ color: '#fff' }}>This is Report Page</Text>
             <Text style={{ color: '#fff' }}>This is Report Page</Text>
-            
-           
-        </View>
+            <Text style={{ color: '#fff' }}>This is Report Page</Text>
+            </View>
     );
 }
 
@@ -18,7 +17,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "center", 
         backgroundColor: GlobalStyles.colors.primary700
     }
 });

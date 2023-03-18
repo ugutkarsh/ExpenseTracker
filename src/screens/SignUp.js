@@ -12,7 +12,7 @@ const SignUp = ({ navigation }) => {
         <View style={styles.container}>
             <View style={styles.inputContainer}>
                 <View style={{ alignItems: 'center', paddingBottom: 20 }}>
-                    <Text style={{ fontSize: 30, textDecorationLine: 'underline', color: GlobalStyles.colors.error500 }}>
+                    <Text style={{ fontSize: 30, textDecorationLine: 'underline', color: '#fff' }}>
                         Sign Up
                     </Text>
                 </View>
@@ -46,7 +46,7 @@ const SignUp = ({ navigation }) => {
                 />
                 <View style={{marginVertical:10}}>
                 <Button
-                    color="#9b095c"
+                    color="#246BFD"
                     title='Log In'
                     onPress={() => navigation.replace('Expenses Overview')}
                 />
@@ -57,7 +57,7 @@ const SignUp = ({ navigation }) => {
                         style={({ pressed }) => [styles.button, pressed && styles.pressed]}
                         onPress={() => navigation.replace('Login')}
                     >
-                        <Text style={{ color: GlobalStyles.colors.error500, textDecorationLine: 'underline' }}>
+                        <Text style={{ color: '#246BFD', textDecorationLine: 'underline' }}>
                             Log In instead
                         </Text>
                     </Pressable>
@@ -75,26 +75,31 @@ const styles = StyleSheet.create({
         height: 40,
         borderWidth: 1,
         padding: 10,
-        backgroundColor: GlobalStyles.colors.primary200,
-        color: GlobalStyles.colors.error500,
+        backgroundColor: GlobalStyles.colors.primary700,
+        color: '#fff',
         borderRadius: 8,
         width:'100%',
-        marginBottom: 20
+        marginBottom: 20,
+        marginTop: 10
     },
+    
     text: {
-        color: GlobalStyles.colors.error500,
+        color: '#fff',
         fontSize: 20,
     },
     container: {
         flex: 1,
-        backgroundColor: GlobalStyles.colors.primary800,
+        padding: 24,
+        backgroundColor: GlobalStyles.colors.primary700,
         justifyContent: 'center',
         alignItems: 'center',
 
     },
     inputContainer: {
-        backgroundColor: GlobalStyles.colors.primary100,
-        padding: 10,
+        backgroundColor: GlobalStyles.colors.primary800,
+        
+        // backgroundColor:'#4b4e54',
+        padding: 20,
         borderRadius: 20,
         fontSize: 18,
         elevation: 5,
