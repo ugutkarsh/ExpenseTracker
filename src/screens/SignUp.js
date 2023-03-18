@@ -48,7 +48,7 @@ const SignUp = ({ navigation }) => {
                 <Button
                     color="#9b095c"
                     title='Log In'
-                    onPress={() => navigation.replace('ExpensesOverview')}
+                    onPress={() => navigation.replace('Expenses Overview')}
                 />
                 </View>
 

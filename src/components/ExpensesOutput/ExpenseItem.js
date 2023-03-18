@@ -38,20 +38,17 @@ const styles = StyleSheet.create({
     expenseItem: {
         padding: 10,
         marginVertical: 8,
-        backgroundColor: GlobalStyles.colors.primary800,
+        backgroundColor: GlobalStyles.colors.primary800, // card style
         flexDirection: 'row',
         justifyContent: "space-between",
         borderRadius: 6,
-        borderBottomColor: "#fff",
         elevation: 4,
-        shadowColor: 'GlobalStyles.colors.gray500',
-        shadowRadius: 4,
     },
     pressed: {
         opacity: 0.75,
     },
     textBase: {
-        color: '#246BFD',
+        color: '#fff',// card text color
     },
     description: {
         fontSize: 16,
@@ -59,18 +56,18 @@ const styles = StyleSheet.create({
         fontWeight: "bold"
     },
     amountContainer: {
-        paddingHorizontal: 5,
-        marginHorizontal: 10,
-        paddingVertical: 5,
-        backgroundColor: "#246BFD",
-        justifyContent: "center",
-        alignItems: "center",
-        borderRadius: 10,
-        minWidth: 90,
+        // paddingHorizontal: 5,
+        // marginHorizontal: 10,
+        // paddingVertical: 5,
+        // backgroundColor: "#246BFD",
+        // justifyContent: "center",
+        // alignItems: "center",
+        // borderRadius: 10,
+        // minWidth: 90,
 
     },
     amount: {
-        color: '#fff',  //some changes required
+        color: '#246BFD',  //some changes required
         fontStyle: "normal",
         fontWeight: "bold",
     }

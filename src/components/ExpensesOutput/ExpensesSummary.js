@@ -19,19 +19,20 @@ export default ExpensesSummary;
 const styles = StyleSheet.create({
     container: {
         padding: 8,
-        backgroundColor: GlobalStyles.colors.primary50,
+        backgroundColor: GlobalStyles.colors.primary800, // 
         borderRadius: 6,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: "center",
     },
     period: {
-        fontSize: 12,
-        color: GlobalStyles.colors.primary200,
+        fontSize: 25,
+        color: '#fff', 
+        fontWeight: 'bold',//last 7 days color
     },
     sum: {
-        fontSize: 16,
+        fontSize: 20,
         fontWeight: 'bold',
-        color: GlobalStyles.colors.primary500,
+        color:'#246BFD',
     }
 });

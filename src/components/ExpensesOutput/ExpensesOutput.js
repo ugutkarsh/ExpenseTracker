@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 24,
         paddingTop: 24,
         paddingBottom: 0,
-        backgroundColor: GlobalStyles.colors.primary700
+        backgroundColor: GlobalStyles.colors.primary700 //main background color
     },
     infoText: {
         color: "#fff",

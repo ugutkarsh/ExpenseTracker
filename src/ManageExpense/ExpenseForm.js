@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     },
     errorText: {
         textAlign: 'center',
-        color: GlobalStyles.colors.error500,
+        color: '#246BFD',
         margin: 8
     },
 });

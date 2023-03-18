@@ -1,12 +1,12 @@
 import { useContext, useLayoutEffect, useState } from "react";
 import { Alert, StyleSheet, View } from "react-native";
 import ExpenseForm from "../ManageExpense/ExpenseForm";
+import ErrorOverlay from "../components/UI/ErrorOverlay";
 import IconButton from "../components/UI/IconButton";
+import LoadingOverlay from "../components/UI/LoadingOverlay";
 import { GlobalStyles } from "../constants/styles";
 import { ExpensesContext } from "../store/expenses-context";
 import { deleteExpense, storeExpense, updateExpense } from "../util/http";
-import LoadingOverlay from "../components/UI/LoadingOverlay";
-import ErrorOverlay from "../components/UI/ErrorOverlay";
 
 const ManageExpenses = ({ route, navigation }) => {
     const [isSubmiting, setIsSubmitting] = useState(false);
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 24,
-        backgroundColor: GlobalStyles.colors.primary800
+        backgroundColor: GlobalStyles.colors.primary700 //add expense background color
     },
     deleteContainer: {
         marginTop: 16,
