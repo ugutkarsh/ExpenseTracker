@@ -102,7 +102,7 @@ const App = () => {
             <Stack.Screen name="Expenses Overview" component={ExpensesOverview} options={{ headerShown: false }} />
             <Stack.Screen name="ManageExpenses" component={ManageExpenses} />
             <Stack.Screen name="Editprofile" component={Editprofile} />
-            <Stack.Screen name="Contact Us" component={Contact} />
+            <Stack.Screen name="About Us" component={Contact} />
           </Stack.Navigator>
         </NavigationContainer>
       </ExpensesContextProvider>

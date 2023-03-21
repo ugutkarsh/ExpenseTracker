@@ -5,7 +5,7 @@ import { Text } from "react-native";
 const Contact =()=>{
     return(
         <View style={{backgroundColor: GlobalStyles.colors.primary700,flex: 1, justifyContent:'center', alignItems:'center'}}>
-            <Text style={{color: '#fff'}}>Contact Us page</Text>
+            <Text style={{color: '#fff'}}>About Us page</Text>
         </View>
     )
 };

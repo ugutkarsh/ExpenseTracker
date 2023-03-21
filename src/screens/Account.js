@@ -26,7 +26,7 @@ const SECTIONS = [
         header: 'Help',
         items: [
             { id: 'bug', icon: 'flag', label: 'Report Bug', type: 'link' },
-            { id: 'contact', icon: 'mail', label: 'Contact Us', type: 'link' },
+            { id: 'contact', icon: 'info', label: 'About Us', type: 'link' },
         ],
     },
     {
@@ -99,7 +99,7 @@ const Account = ({ navigation }) => {
                                                         { text: 'YES', onPress: () => navigation.replace('Login') }
                                                     ])
                                                 } if (id === 'contact') {
-                                                    navigation.navigate('Contact Us');
+                                                    navigation.navigate('About Us');
                                                 }if(id==='bug'){
                                                     Linking.openURL('mailto:utkarshgawande01@gmail.com');
                                                 }
