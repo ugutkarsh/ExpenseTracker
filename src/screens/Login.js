@@ -1,6 +1,7 @@
 import { Button, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useState } from 'react';
 import { GlobalStyles } from '../constants/styles';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Login = ({ navigation }) => {
     const [email, onChangeEmail] = useState('');
@@ -14,22 +15,30 @@ const Login = ({ navigation }) => {
                         Log In
                     </Text>
                 </View>
-                <Text style={styles.text}>Email Address</Text>
-                <TextInput
-                    style={styles.input}
-                    onChangeText={onChangeEmail}
-                    value={email}
-                    placeholder="Enter Email Address"
-                />
-                <Text style={styles.text}>Password</Text>
-                <TextInput
-                    style={styles.input}
-                    onChangeText={onChangePassword}
-                    value={password}
-                    placeholder="Enter Password"
-                />
+                    <Text style={styles.text}>Email Address</Text>
+                <View>
+                    <TextInput
+                        style={styles.input}
+                        onChangeText={onChangeEmail}
+                        value={email}
+                        placeholder="Enter Email Address"
+                    />
+                    <Ionicons name='mail' size={25}  style={styles.icon}/>
+                </View>
 
-                <View style={{ marginVertical: 10,borderRadius: 10 }}>
+                    <Text style={styles.text}>Password</Text>
+                <View>
+                    <TextInput
+                        style={styles.input}
+                        onChangeText={onChangePassword}
+                        value={password}
+                        secureTextEntry={true}
+                        placeholder="Enter Password"
+                    />
+                    <Ionicons name="lock-closed" size={25}  style={styles.icon}/>
+                </View>
+
+                <View style={{ marginVertical: 10, borderRadius: 10 }}>
                     <Button
                         color="#246BFD"
                         title='Log In'
@@ -60,14 +69,20 @@ const styles = StyleSheet.create({
         height: 40,
         borderWidth: 1,
         padding: 10,
+        paddingHorizontal: 40,
         backgroundColor: GlobalStyles.colors.primary700,
         color: '#fff',
         borderRadius: 8,
-        width:'100%',
+        width: '100%',
         marginBottom: 20,
         marginTop: 10
     },
-    
+    icon:{
+        position: 'absolute',
+        marginTop: 16,
+        left: 10
+    },
+
     text: {
         color: '#fff',
         fontSize: 20,
