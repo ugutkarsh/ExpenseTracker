@@ -20,6 +20,7 @@ import Report from './src/screens/Report';
 import SignUp from './src/screens/SignUp';
 import SplashScreen from './src/screens/SplashScreen';
 import Statistics from './src/screens/Statistics';
+import Download from './src/screens/Download';
 
 
 const Stack = createNativeStackNavigator();
@@ -103,6 +104,7 @@ const App = () => {
             <Stack.Screen name="ManageExpenses" component={ManageExpenses} />
             <Stack.Screen name="Editprofile" component={Editprofile} />
             <Stack.Screen name="About Us" component={Contact} />
+            <Stack.Screen name="Download" component={Download} />
           </Stack.Navigator>
         </NavigationContainer>
       </ExpensesContextProvider>

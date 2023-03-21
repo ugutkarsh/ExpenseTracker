@@ -102,8 +102,9 @@ const Account = ({ navigation }) => {
                                                     navigation.navigate('About Us');
                                                 }if(id==='bug'){
                                                     Linking.openURL('mailto:utkarshgawande01@gmail.com');
+                                                }if(id==='download'){
+                                                    navigation.navigate('Download');
                                                 }
-                                                // handle onPress
                                             }}>
                                             <View style={styles.row}>
                                                 <FeatherIcon
