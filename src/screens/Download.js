@@ -51,7 +51,8 @@ const Download = () => {
   };
 
   const downloadFile = () => {
-   
+    
+    alert('Downloading');
     // Get today's date to add the time suffix in filename
     let date = new Date();
     // File URL which we want to download
@@ -147,3 +148,20 @@ const styles = StyleSheet.create({
   },
   
 });
+
+//--------------------------------------------------------------------------------------------------------//
+
+// import { View } from 'react-native';
+// import { Button } from 'react-native';
+// import * as OpenAnything from 'react-native-openanything';
+
+// const Download = () => {
+//     const pdfUri = 'https://expense-tracker-e9453-default-rtdb.firebaseio.com/expenses.json';
+//     return(
+//     <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
+//     <Button title='Open PDF' onPress={()=>OpenAnything.Pdf(pdfUri)}/>
+//     </View>
+//     );
+// }
+
+// export default Download;

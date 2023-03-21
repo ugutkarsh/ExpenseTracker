@@ -41,6 +41,7 @@ const SECTIONS = [
 
 const Account = ({ navigation }) => {
     const [form, setForm] = useState({
+        language: 'Hindi',
         language: 'English',
         darkMode: true,
         notification: true,
