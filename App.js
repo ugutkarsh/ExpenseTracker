@@ -19,6 +19,8 @@ import SignUp from './src/screens/SignUp';
 import Account from './src/screens/Account';
 import Statistics from './src/screens/Statistics';
 import Report from './src/screens/Report';
+import Editprofile from './src/screens/Editprofile';
+import Contact from './src/screens/ContactUs';
 
 
 const Stack = createNativeStackNavigator();
@@ -77,9 +79,6 @@ const ExpensesOverview = ({ navigation }) => {
       <BottomTabs.Screen name="Account" component={Account} options={{
         title: 'Account',
         tabBarLabel: 'Account',
-        headerRight: ({ }) => (
-          <IconButton icon="logout" size={24} color={"#246BFD"} onPress={() => { navigation.replace('Login') }} />
-        ),
         tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="account" size={30} color={color}
         />
       }} />
@@ -103,6 +102,8 @@ const App = () => {
             <Stack.Screen name="SignUp" component={SignUp} />
             <Stack.Screen name="Expenses Overview" component={ExpensesOverview} options={{ headerShown: false }} />
             <Stack.Screen name="ManageExpenses" component={ManageExpenses} />
+            <Stack.Screen name="Editprofile" component={Editprofile} />
+            <Stack.Screen name="Contact Us" component={Contact} />
           </Stack.Navigator>
         </NavigationContainer>
       </ExpensesContextProvider>
