@@ -91,19 +91,22 @@ const Account = ({ navigation }) => {
                                         ]}>
                                         <TouchableOpacity
                                             onPress={() => {
+
                                                 if (id === 'logout') {
                                                     Alert.alert('logout', 'Are you sure you want to log out?', [
                                                         {
                                                             text: 'Cancel',
                                                             style: 'cancel',
                                                         },
-                                                        { text: 'YES', onPress: () => navigation.replace('Login') }
+                                                        { text: 'YES', onPress: () => navigation.replace('Login') },
+                                                        // {cancelable: false}
+                                                        
                                                     ])
                                                 } if (id === 'contact') {
                                                     navigation.navigate('About Us');
-                                                }if(id==='bug'){
+                                                } if (id === 'bug') {
                                                     Linking.openURL('mailto:utkarshgawande01@gmail.com');
-                                                }if(id==='download'){
+                                                } if (id === 'download') {
                                                     navigation.navigate('Download');
                                                 }
                                             }}>
@@ -217,7 +220,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#246BFD',
+        backgroundColor: '#1746a2',
         borderRadius: 12,
     },
     profileActionText: {
