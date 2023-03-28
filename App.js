@@ -66,9 +66,7 @@ const ExpensesOverview = ({ navigation }) => {
       <BottomTabs.Screen name="Statistics" component={Statistics} options={{
         title: 'Statistics',
         tabBarLabel: 'Statistics',
-        headerRight: ({ }) => (
-          <IconButton icon="plus" size={24} color={"#246BFD"} onPress={() => { navigation.navigate('ManageExpenses') }} />
-        ),
+        headerShown: false,
         tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="google-analytics" size={30} color={color} />
       }} />
       <BottomTabs.Screen name="Report" component={Report} options={{
