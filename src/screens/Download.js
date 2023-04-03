@@ -11,7 +11,7 @@ import {
   TouchableOpacity,
   PermissionsAndroid,
 } from 'react-native';
-
+import FileViewer from "react-native-file-viewer";
 // Import RNFetchBlob for the file download
 import RNFetchBlob from 'rn-fetch-blob';
 
@@ -49,6 +49,14 @@ const Download = () => {
       }
     }
   };
+
+  const path = FileViewer.open(fileUrl) // absolute-path-to-my-local-file.
+  .then(() => {
+    // success
+  })
+  .catch((error) => {
+    // error
+  });
 
   const downloadFile = () => {
     
