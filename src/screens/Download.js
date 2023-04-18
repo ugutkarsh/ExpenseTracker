@@ -1,6 +1,6 @@
 // Import React Component
 import React from 'react';
-
+import createPDF from './HTmltoPDf';
 // Import React native Components
 import {
   Text,
@@ -16,7 +16,7 @@ import FileViewer from "react-native-file-viewer";
 import RNFetchBlob from 'rn-fetch-blob';
 
 const Download = () => {
-  const fileUrl = 'https://expense-tracker-e9453-default-rtdb.firebaseio.com/expenses';
+  const fileUrl = 'https://www.tutorialspoint.com/react_native/react_native_tutorial.pdf';
 
   const checkPermission = async () => {
     
