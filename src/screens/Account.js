@@ -1,16 +1,7 @@
 import React, { useState } from 'react';
 import { Linking } from 'react-native';
-import {
-    StyleSheet,
-    SafeAreaView,
-    ScrollView,
-    View,
-    Text,
-    Image,
-    TouchableOpacity,
-    Switch,
-    Alert
-} from 'react-native';
+import { SafeAreaView, ScrollView, View, Text, StyleSheet } from 'react-native';
+import { Image, TouchableOpacity, Switch, Alert } from 'react-native';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 
 const SECTIONS = [
