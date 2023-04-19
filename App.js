@@ -21,6 +21,7 @@ import SignUp from './src/screens/SignUp';
 import SplashScreen from './src/screens/SplashScreen';
 import Statistics from './src/screens/Statistics';
 import Download from './src/screens/Download';
+import HtmlToPdf from './src/screens/HTmltoPDf';
 
 
 const Stack = createNativeStackNavigator();
@@ -58,11 +59,6 @@ const ExpensesOverview = ({ navigation }) => {
         ),
         tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="calendar" size={30} color={color} />
       }} />
-      {/* <BottomTabs.Screen name="ManageExpenses" component={ManageExpenses} options={{
-        title: 'Add Expenses',
-        tabBarLabel: 'Add Expenses',
-        tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="plus" size={30} color={color} />
-      }} /> */}
       <BottomTabs.Screen name="Statistics" component={Statistics} options={{
         title: 'Statistics',
         tabBarLabel: 'Statistics',
@@ -103,6 +99,8 @@ const App = () => {
             <Stack.Screen name="Editprofile" component={Editprofile} />
             <Stack.Screen name="About Us" component={Contact} />
             <Stack.Screen name="Download" component={Download} />
+            <Stack.Screen name="HtmlToPdf" component={HtmlToPdf} />
+            
           </Stack.Navigator>
         </NavigationContainer>
       </ExpensesContextProvider>

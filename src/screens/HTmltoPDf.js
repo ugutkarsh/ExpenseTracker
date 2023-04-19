@@ -333,7 +333,10 @@ alert(file.filePath);
 
 return (
 <View>
-  <TouchableHighlight onPress={createPDF}>
+  <TouchableHighlight style={{width: '80%',
+    padding: 10,
+    backgroundColor: '#1746a2',
+    margin: 10,}}onPress={createPDF}>
     <Text>Create PDF</Text>
   </TouchableHighlight>
 </View>

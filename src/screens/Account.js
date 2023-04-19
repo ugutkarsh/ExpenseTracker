@@ -91,8 +91,28 @@ const Account = ({ navigation }) => {
                                         ]}>
                                         <TouchableOpacity
                                             onPress={() => {
-
-                                                if (id === 'logout') {
+                                                if (id == 'language') {
+                                                    Alert.alert('Maintenance', 'Module under Maintenance', [
+                                                        {
+                                                            text: 'ok',
+                                                            style: 'ok',
+                                                        }
+                                                    ])
+                                                } if (id == 'darkMode') {
+                                                    Alert.alert('Maintenance', 'Module under Maintenance', [
+                                                        {
+                                                            text: 'ok',
+                                                            style: 'ok',
+                                                        }
+                                                    ])
+                                                } if (id == 'notification') {
+                                                    Alert.alert('Maintenance', 'Module under Maintenance', [
+                                                        {
+                                                            text: 'ok',
+                                                            style: 'ok',
+                                                        }
+                                                    ])
+                                                } if (id === 'logout') {
                                                     Alert.alert('logout', 'Are you sure you want to log out?', [
                                                         {
                                                             text: 'Cancel',
@@ -100,7 +120,7 @@ const Account = ({ navigation }) => {
                                                         },
                                                         { text: 'YES', onPress: () => navigation.replace('Login') },
                                                         // {cancelable: false}
-                                                        
+
                                                     ])
                                                 } if (id === 'contact') {
                                                     navigation.navigate('About Us');
