@@ -19,7 +19,7 @@ const Download = () => {
   const fileUrl = 'https://www.tutorialspoint.com/react_native/react_native_tutorial.pdf';
 
   const checkPermission = async () => {
-    
+
     // Function to check the platform
     // If Platform is Android then check for permissions.
 
@@ -41,35 +41,32 @@ const Download = () => {
           console.log('Storage Permission Granted.');
         } else {
           // If permission denied then show alert
-          Alert.alert('Error','Storage Permission Not Granted');
+          Alert.alert('Error', 'Storage Permission Not Granted');
         }
       } catch (err) {
         // To handle permission related exception
-        console.log("++++"+err);
+        console.log("++++" + err);
       }
     }
   };
 
   const path = FileViewer.open(fileUrl) // absolute-path-to-my-local-file.
-  .then(() => {
-    // success
-  })
-  .catch((error) => {
-    // error
-  });
+    .then(() => {
+      // success
+    })
+    .catch((error) => {
+      // error
+    });
 
   const downloadFile = () => {
-    
     alert('Downloading');
     // Get today's date to add the time suffix in filename
     let date = new Date();
     // File URL which we want to download
-    let FILE_URL = fileUrl;    
+    let FILE_URL = fileUrl;
     // Function to get extention of the file url
     let file_ext = getFileExtention(FILE_URL);
-   
     file_ext = '.' + file_ext[0];
-   
     // config: To get response by passing the downloading related options
     // fs: Root directory path to download
     const { config, fs } = RNFetchBlob;
@@ -78,14 +75,14 @@ const Download = () => {
       fileCache: true,
       addAndroidDownloads: {
         path:
-          RootDir+
-          '/file_' + 
+          RootDir +
+          '/file_' +
           Math.floor(date.getTime() + date.getSeconds() / 2) +
           file_ext,
         description: 'downloading file...',
         notification: true,
         // useDownloadManager works with Android only
-        useDownloadManager: true,   
+        useDownloadManager: true,
       },
     };
     config(options)
@@ -96,11 +93,10 @@ const Download = () => {
         alert('File Downloaded Successfully.');
       });
   };
-
   const getFileExtention = fileUrl => {
     // To get the file extension
     return /[.]/.exec(fileUrl) ?
-             /[^.]+$/.exec(fileUrl) : undefined;
+      /[^.]+$/.exec(fileUrl) : undefined;
   };
 
   return (
@@ -109,7 +105,6 @@ const Download = () => {
         <Text style={{ fontSize: 25, textAlign: 'center' }}>
           React Native File Download Example
         </Text>
-       
       </View>
       <Image
         source={{
@@ -132,7 +127,6 @@ const Download = () => {
     </View>
   );
 };
-
 export default Download;
 
 const styles = StyleSheet.create({
@@ -154,22 +148,4 @@ const styles = StyleSheet.create({
     backgroundColor: '#1746a2',
     margin: 10,
   },
-  
 });
-
-//--------------------------------------------------------------------------------------------------------//
-
-// import { View } from 'react-native';
-// import { Button } from 'react-native';
-// import * as OpenAnything from 'react-native-openanything';
-
-// const Download = () => {
-//     const pdfUri = 'https://expense-tracker-e9453-default-rtdb.firebaseio.com/expenses.json';
-//     return(
-//     <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
-//     <Button title='Open PDF' onPress={()=>OpenAnything.Pdf(pdfUri)}/>
-//     </View>
-//     );
-// }
-
-// export default Download;

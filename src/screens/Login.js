@@ -6,7 +6,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 const Login = ({ navigation }) => {
     const [email, onChangeEmail] = useState('');
     const [password, onChangePassword] = useState('');
-
     return (
         <View style={styles.container}>
             <View style={styles.inputContainer}>
@@ -15,7 +14,7 @@ const Login = ({ navigation }) => {
                         Log In
                     </Text>
                 </View>
-                    <Text style={styles.text}>Email Address</Text>
+                <Text style={styles.text}>Email Address</Text>
                 <View>
                     <TextInput
                         style={styles.input}
@@ -23,10 +22,9 @@ const Login = ({ navigation }) => {
                         value={email}
                         placeholder="Enter Email Address"
                     />
-                    <Ionicons name='mail' size={25}  style={styles.icon}/>
+                    <Ionicons name='mail' size={25} style={styles.icon} />
                 </View>
-
-                    <Text style={styles.text}>Password</Text>
+                <Text style={styles.text}>Password</Text>
                 <View>
                     <TextInput
                         style={styles.input}
@@ -35,9 +33,8 @@ const Login = ({ navigation }) => {
                         secureTextEntry={true}
                         placeholder="Enter Password"
                     />
-                    <Ionicons name="lock-closed" size={25}  style={styles.icon}/>
+                    <Ionicons name="lock-closed" size={25} style={styles.icon} />
                 </View>
-
                 <View style={{ marginVertical: 10, borderRadius: 10 }}>
                     <Button
                         color="#246BFD"
@@ -45,7 +42,6 @@ const Login = ({ navigation }) => {
                         onPress={() => navigation.replace('Expenses Overview')}
                     />
                 </View>
-
                 <View style={{ alignItems: 'center', marginTop: 10 }}>
                     <Pressable
                         style={({ pressed }) => [styles.button, pressed && styles.pressed]}
@@ -57,11 +53,9 @@ const Login = ({ navigation }) => {
                     </Pressable>
                 </View>
             </View>
-
         </View>
     )
 }
-
 export default Login;
 
 const styles = StyleSheet.create({
@@ -77,12 +71,11 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         marginTop: 10
     },
-    icon:{
+    icon: {
         position: 'absolute',
         marginTop: 16,
         left: 10
     },
-
     text: {
         color: '#fff',
         fontSize: 20,
@@ -93,7 +86,6 @@ const styles = StyleSheet.create({
         backgroundColor: GlobalStyles.colors.primary700,
         justifyContent: 'center',
         alignItems: 'center',
-
     },
     inputContainer: {
         backgroundColor: GlobalStyles.colors.primary800,
@@ -103,7 +95,6 @@ const styles = StyleSheet.create({
         elevation: 5,
         width: 350,
         color: GlobalStyles.colors.primary700
-
     },
     button: {
         paddingVertical: 6,

@@ -4,11 +4,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'react-native';
 import { hideNavigationBar } from 'react-native-navigation-bar-color';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
 import IconButton from './src/components/UI/IconButton';
 import { GlobalStyles } from './src/constants/styles';
 import ExpensesContextProvider from './src/store/expenses-context';
-
 import Account from './src/screens/Account';
 import AllExpenses from './src/screens/AllExpenses';
 import Contact from './src/screens/ContactUs';
@@ -23,13 +21,11 @@ import Statistics from './src/screens/Statistics';
 import Download from './src/screens/Download';
 import HtmlToPdf from './src/screens/HTmltoPDf';
 
-
 const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator();
 const Hide = () => {
   hideNavigationBar();
 };
-
 
 const ExpensesOverview = ({ navigation }) => {
   return (
@@ -65,11 +61,11 @@ const ExpensesOverview = ({ navigation }) => {
         headerShown: false,
         tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="google-analytics" size={30} color={color} />
       }} />
-      <BottomTabs.Screen name="Report" component={Report} options={{
+      {/* <BottomTabs.Screen name="Report" component={Report} options={{
         title: 'Report',
         tabBarLabel: 'Report',
         tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="file-document" size={30} color={color} />
-      }} />
+      }} /> */}
       <BottomTabs.Screen name="Account" component={Account} options={{
         title: 'Account',
         tabBarLabel: 'Account',
@@ -87,10 +83,11 @@ const App = () => {
       <StatusBar hidden />
       <ExpensesContextProvider>
         <NavigationContainer>
-          <Stack.Navigator screenOptions={{
-            headerStyle: { backgroundColor: GlobalStyles.colors.primary800 },
-            headerTintColor: "#fff",
-          }}>
+          <Stack.Navigator
+            screenOptions={{
+              headerStyle: { backgroundColor: GlobalStyles.colors.primary800 },
+              headerTintColor: "#fff",
+            }}>
             <Stack.Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false }} />
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="SignUp" component={SignUp} />
@@ -100,7 +97,6 @@ const App = () => {
             <Stack.Screen name="About Us" component={Contact} />
             <Stack.Screen name="Download" component={Download} />
             <Stack.Screen name="HtmlToPdf" component={HtmlToPdf} />
-            
           </Stack.Navigator>
         </NavigationContainer>
       </ExpensesContextProvider>

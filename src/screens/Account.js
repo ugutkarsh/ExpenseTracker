@@ -118,7 +118,7 @@ const Account = ({ navigation }) => {
                                                 } if (id === 'bug') {
                                                     Linking.openURL('mailto:utkarshgawande01@gmail.com');
                                                 } if (id === 'download') {
-                                                    navigation.navigate('Download');
+                                                    navigation.navigate('HtmlToPdf');
                                                 }
                                             }}>
                                             <View style={styles.row}>
