@@ -19,10 +19,8 @@ const Download = () => {
   const fileUrl = 'https://www.tutorialspoint.com/react_native/react_native_tutorial.pdf';
 
   const checkPermission = async () => {
-
     // Function to check the platform
     // If Platform is Android then check for permissions.
-
     if (Platform.OS === 'ios') {
       downloadFile();
     } else {

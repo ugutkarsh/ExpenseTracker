@@ -132,14 +132,7 @@ const styles = StyleSheet.create({
 
 // import React, { useState } from 'react';
 // import {
-//     SafeAreaView,
-//     View,
-//     Text,
-//     TextInput,
-//     TouchableHighlight,
-//     ActivityIndicator,
-//     Alert,
-//     StyleSheet
+//     SafeAreaView, View, Text, TextInput, TouchableHighlight, ActivityIndicator, Alert, StyleSheet
 // } from 'react-native';
 // import { GlobalStyles } from '../constants/styles';
 // import auth from '@react-native-firebase/auth';
@@ -155,7 +148,6 @@ const styles = StyleSheet.create({
 //         // Function to validate email address
 //         return /\S+@\S+\.\S+/.test(email);
 //     };
-
 //     const __doSignUp = () => {
 //         if (!email) {
 //             setError('Email required *');
@@ -170,10 +162,8 @@ const styles = StyleSheet.create({
 //             setValid(false);
 //             return;
 //         }
-
 //         __doCreateUser(email, password);
 //     };
-
 //     const __doCreateUser = async (email, password) => {
 //         try {
 //             setFetching(true);
@@ -210,7 +200,6 @@ const styles = StyleSheet.create({
 //                     }}
 //                     error={!isValid}
 //                 />
-
 //                 <TextInput
 //                     label={'Password'}
 //                     secureTextEntry

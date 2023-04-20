@@ -20,12 +20,9 @@ const ManageExpenses = ({ route, navigation }) => {
             },
             { text: 'OK', onPress: () => deleteExpenseHandler() },
         ]);
-
     const expensesCtx = useContext(ExpensesContext);
-
     const editedExpenseId = route.params?.expenseId;
     const isEditing = !!editedExpenseId;
-
     const selectedExpense = expensesCtx.expenses.find(
         (expense) => expense.id === editedExpenseId
     );
@@ -39,7 +36,6 @@ const ManageExpenses = ({ route, navigation }) => {
     const deleteExpenseHandler =async () => {
         setIsSubmitting(true);
         try{
-
             await deleteExpense(editedExpenseId);
             expensesCtx.deleteExpense(editedExpenseId);
             navigation.goBack();
@@ -54,7 +50,6 @@ const ManageExpenses = ({ route, navigation }) => {
     const confirmHandler = async (expenseData) => {
         setIsSubmitting(true);
         try{
-
             if (isEditing) {
                 expensesCtx.updateExpense(
                     editedExpenseId, expenseData
@@ -71,11 +66,9 @@ const ManageExpenses = ({ route, navigation }) => {
         }
     };
 
-
     if(error && !isSubmiting){
         return <ErrorOverlay message={error}/>
     }
-
     if(isSubmiting){
         return <LoadingOverlay/>
     }
@@ -88,7 +81,6 @@ const ManageExpenses = ({ route, navigation }) => {
                 onCancel={cancelHandler}
                 defaultValues={selectedExpense}
             />
-
             {isEditing && (
                 <View style={styles.deleteContainer}>
                     <IconButton

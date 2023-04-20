@@ -69,6 +69,7 @@ const Statistics = () => {
                     center={[10, 10]}
                 />
             </View>
+            <Text style={{color:'#fff'}}> This Module is under Development. This is just a preview.</Text>
         </View>
     );
 }
@@ -78,7 +79,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
-        // justifyContent: "center",
         backgroundColor: GlobalStyles.colors.primary700
     },
 });
